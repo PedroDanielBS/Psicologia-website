@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofia Martins | Psicologia Premium</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Instrument Serif (Italic/Normal) & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- GSAP Core & ScrollTrigger for high-end scroll animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Font Awesome for elegant premium icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        alabaster: '#FAF9F6',
+                        forest: '#2D5A27',
+                        sand: '#EEDEC9',
+                        charcoal: '#1E2522',
+                        mint: '#3B6B55',
+                    },
+                    fontFamily: {
+                        serif: ['"Instrument Serif"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style id="custom-theme-styles">
+        body {
+            background-color: #FAF9F6;
+            color: #1E2522;
+            overflow-x: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        /* Custom smooth transition for hover states */
+        .btn-transition {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        /* Glassmorphism utility card */
+        .glass-card {
+            background: rgba(250, 249, 246, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(238, 222, 201, 0.5);
+        }
+        /* Soft pulsing animation for floating elements */
+        @keyframes gentle-float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+        .float-animation {
+            animation: gentle-float 6s ease-in-out infinite;
+        }
+        @keyframes gentle-float-reverse {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(10px) rotate(-1.5deg); }
+        }
+        .float-animation-reverse {
+            animation: gentle-float-reverse 8s ease-in-out infinite;
+        }
+        /* Custom scrollbar matching the premium aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF9F6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #EEDEC9;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3B6B55;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen">
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 px-6 py-4 md:px-12 md:py-6 transition-all duration-300">
+        <nav class="max-w-7xl mx-auto flex items-center justify-between glass-card px-6 py-4 rounded-full shadow-sm">
+            <!-- Brand / Logo -->
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-forest flex items-center justify-center text-alabaster font-serif text-lg font-semibold shadow-inner">
+                    S
+                </div>
+                <span class="font-serif text-xl md:text-2xl font-semibold tracking-wide text-forest">Sofia Martins</span>
+            </a>
+            
+            <!-- Desktop Menu Links -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+                <a href="#manifesto" class="text-charcoal hover:text-forest transition-colors duration-300">O Manifesto</a>
+                <a href="#sobre" class="text-charcoal hover:text-forest transition-colors duration-300">Sobre mim</a>
+                <a href="#especialidades" class="text-charcoal hover:text-forest transition-colors duration-300">Especialidades</a>
+                <a href="#metodo" class="text-charcoal hover:text-forest transition-colors duration-300">O Método</a>
+            </div>
+
+            <!-- CTA / Contact Button -->
+            <div>
+                <a href="#contato" class="btn-transition group relative inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-forest text-alabaster text-sm font-semibold hover:bg-mint overflow-hidden shadow-md">
+                    <span class="relative z-10 flex items-center gap-2">
+                        Agendar Sessão
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section Container -->
+    <section class="min-h-screen w-full flex items-center pt-28 pb-12 px-6 md:px-12 relative overflow-hidden">
+        
+        <!-- Abstract Animated Background elements -->
+        <div class="absolute top-20 left-10 w-72 h-72 rounded-full bg-sand/20 filter blur-3xl -z-10 float-animation"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-forest/5 filter blur-3xl -z-10 float-animation-reverse"></div>
+
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            
+            <!-- Left Side: Copywriting & Actions (Column span 7) -->
+            <div class="lg:col-span-7 flex flex-col justify-center text-left">
+                <!-- Super-title -->
+                <div class="overflow-hidden mb-4">
+                    <span id="hero-tag" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sand/40 border border-sand/60 text-xs md:text-sm font-semibold tracking-wide text-forest uppercase opacity-0 translate-y-4">
+                        <span class="w-1.5 h-1.5 rounded-full bg-forest animate-pulse"></span>
+                        Espaço seguro de acolhimento e escuta
+                    </span>
+                </div>
+
+                <!-- Main Title: Playfair-style serif -->
+                <h1 id="hero-title" class="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-charcoal font-medium tracking-tight mb-6 opacity-0 translate-y-8">
+                    Encontre o <span class="text-forest italic font-normal">equilíbrio interno</span> para transformar sua realidade.
+                </h1>
+
+                <!-- Subtitle: Clean geometric sans-serif -->
+                <p id="hero-subtitle" class="text-base md:text-lg text-charcoal/85 max-w-xl leading-relaxed mb-8 font-light opacity-0 translate-y-8">
+                    Psicoterapia individual online e presencial focada no seu desenvolvimento, superação de desafios cotidianos e bem-estar emocional duradouro.
+                </p>
+
+                <!-- Action Button Group -->
+                <div id="hero-actions" class="flex flex-col sm:flex-row gap-4 items-start opacity-0 translate-y-8">
+                    <!-- Primary CTA -->
+                    <a href="#contato" class="btn-transition group w-full sm:w-auto relative px-8 py-4 rounded-full bg-forest text-alabaster font-semibold text-base shadow-lg hover:shadow-xl hover:bg-mint flex items-center justify-center gap-3">
+                        <span>Iniciar Diagnóstico</span>
+                        <div class="w-6 h-6 rounded-full bg-alabaster/10 flex items-center justify-center group-hover:bg-alabaster/20 transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- Secondary CTA -->
+                    <a href="#sobre" class="btn-transition w-full sm:w-auto px-8 py-4 rounded-full border border-sand hover:border-forest/40 hover:bg-sand/10 text-charcoal/90 font-semibold text-base flex items-center justify-center gap-2">
+                        Conhecer abordagem
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Side: Organic interactive representation (Column span 5) -->
+            <div id="hero-graphic" class="lg:col-span-5 flex justify-center items-center relative min-h-[400px] lg:min-h-[500px] opacity-0 scale-95">
+                
+                <div class="relative w-[320px] h-[320px] md:w-[420px] md:h-[420px] flex items-center justify-center">
+                    
+                    <!-- Decorative back frame (rotated organic square) -->
+                    <div class="absolute inset-0 border border-sand rounded-[40px] rotate-12 float-animation-reverse opacity-70"></div>
+                    
+                    <!-- Main elegant glass container -->
+                    <div class="absolute inset-4 rounded-[36px] overflow-hidden glass-card flex items-center justify-center shadow-xl">
+                        <!-- Simulated abstract nature photography or art using CSS shapes & SVGs -->
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-8 transform scale-105">
+                            <defs>
+                                <radialGradient id="grad1" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" style="stop-color:#EEDEC9;stop-opacity:0.6" />
+                                    <stop offset="100%" style="stop-color:#FAF9F6;stop-opacity:0" />
+                                </radialGradient>
+                            </defs>
+                            <circle cx="100" cy="100" r="90" fill="url(#grad1)" />
+                            
+                            <!-- Minimalist organic branch / leaf vector -->
+                            <path d="M 100 180 C 100 130, 90 90, 140 60" stroke="#2D5A27" stroke-width="1.5" fill="none" stroke-linecap="round" />
+                            <path d="M 115 130 C 130 120, 145 125, 140 110 C 135 110, 120 120, 115 130" fill="#3B6B55" opacity="0.85" />
+                            <path d="M 100 100 C 80 90, 70 95, 72 80 C 75 80, 90 90, 100 100" fill="#3B6B55" opacity="0.75" />
+                            <path d="M 100 180 C 100 110, 110 80, 70 50" stroke="#2D5A27" stroke-width="1" stroke-dasharray="2,2" fill="none" />
+                            
+                            <!-- Balanced abstract Zen stones -->
+                            <ellipse cx="100" cy="170" rx="30" ry="12" fill="#1E2522" opacity="0.08" />
+                            <ellipse cx="100" cy="165" rx="24" ry="10" fill="#2D5A27" opacity="0.85" />
+                            <ellipse cx="100" cy="150" rx="18" ry="8" fill="#EEDEC9" />
+                            <ellipse cx="101" cy="138" rx="12" ry="6" fill="#1E2522" opacity="0.75" />
+                        </svg>
+                    </div>
+
+                    <!-- Floating Interactive Badge 1: Online sessions available -->
+                    <div class="absolute -top-4 -right-2 glass-card py-3.5 px-5 rounded-2xl shadow-lg flex items-center gap-3 float-animation border border-sand">
+                        <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
+                        <div class="text-xs">
+                            <p class="font-bold text-charcoal">Atendimento Online</p>
+                            <p class="text-charcoal/70">Sessões seguras via vídeo</p>
+                        </div>
+                    </div>
+
+                    <!-- Floating Interactive Badge 2: Premium Welcoming Badge -->
+                    <div class="absolute -bottom-6 -left-6 glass-card py-4 px-5 rounded-2xl shadow-lg flex items-center gap-3 float-animation-reverse border border-sand">
+                        <div class="w-10 h-10 rounded-full bg-sand/50 flex items-center justify-center text-forest">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <div class="text-xs">
+                            <p class="font-bold text-charcoal">Ambiente Protegido</p>
+                            <p class="text-charcoal/70">Sigilo absoluto garantido</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 2: O Manifesto / Introdução -->
+    <section id="manifesto" class="py-24 md:py-36 px-6 md:px-12 bg-[#FAF9F6] relative overflow-hidden border-t border-sand/30">
+        
+        <!-- Subtle back visual touch -->
+        <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full flex justify-between pointer-events-none opacity-[0.03] select-none z-0">
+            <span class="font-serif text-[280px] text-forest font-bold leading-none select-none">“</span>
+            <span class="font-serif text-[280px] text-forest font-bold leading-none select-none align-bottom self-end">”</span>
+        </div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <!-- Super title descriptor -->
+            <div class="flex items-center justify-center gap-2 mb-8" id="manifesto-badge">
+                <span class="h-[1px] w-8 bg-forest/40"></span>
+                <span class="text-xs md:text-sm uppercase tracking-widest font-semibold text-forest">Uma Nova Perspectiva</span>
+                <span class="h-[1px] w-8 bg-forest/40"></span>
+            </div>
+
+            <!-- Big poetic manifesto quote with scroll reveal trigger -->
+            <p id="manifesto-text" class="font-serif text-3xl md:text-5xl lg:text-[52px] text-charcoal leading-relaxed md:leading-[1.45] font-light italic mb-10">
+                "A terapia não serve para <span class="text-forest font-normal not-italic relative inline-block group">consertar quem você é,<span class="absolute bottom-1 left-0 w-full h-[2px] bg-sand"></span></span> mas para oferecer o espaço seguro e as ferramentas de que necessita para se <span class="text-forest font-normal not-italic">descobrir por inteiro</span>."
+            </p>
+
+            <p id="manifesto-author" class="text-sm md:text-base text-charcoal/65 font-medium tracking-wide uppercase">
+                — Sofia Martins, Psicoterapeuta Clínica
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 3: Sobre Mim -->
+    <section id="sobre" class="py-24 md:py-36 px-6 md:px-12 bg-alabaster relative overflow-hidden">
+        
+        <!-- Dynamic soft organic mesh blob in background -->
+        <div class="absolute top-1/4 -left-48 w-96 h-96 rounded-full bg-sand/30 filter blur-3xl opacity-50 -z-10 float-animation-reverse"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-center">
+                
+                <!-- Left Column: Portrait and Organic Framing (Span 5) -->
+                <div class="lg:col-span-5 flex justify-center relative" id="sobre-photo-container">
+                    
+                    <!-- Decorative back background frame -->
+                    <div class="absolute -inset-4 border border-forest/10 rounded-[48px] -rotate-3 -z-10"></div>
+                    
+                    <!-- Main image placeholder (designed with premium aesthetic placeholder frame) -->
+                    <div class="w-full max-w-[380px] aspect-[4/5] rounded-[40px] overflow-hidden shadow-2xl relative bg-forest/5 border border-sand">
+                        
+                        <!-- Premium abstract representation resembling portrait artwork since image urls can be fragile -->
+                        <div class="absolute inset-0 w-full h-full flex flex-col justify-end p-8 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent">
+                            <!-- Inside frame details -->
+                            <div class="text-alabaster z-10">
+                                <p class="font-serif text-2xl">Sofia Martins</p>
+                                <p class="text-xs text-sand/90 font-light tracking-widest uppercase mt-1">CRP 06/123456</p>
+                            </div>
+                        </div>
+
+                        <!-- Art Illustration representing therapeutic presence and mindfulness -->
+                        <svg class="w-full h-full object-cover bg-neutral-900" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Soft backdrop -->
+                            <rect width="100%" height="100%" fill="#2D5A27" />
+                            <radialGradient id="sun" cx="50%" cy="40%" r="60%">
+                                <stop offset="0%" stop-color="#FAF9F6" stop-opacity="0.2" />
+                                <stop offset="100%" stop-color="#1E2522" stop-opacity="0.8" />
+                            </radialGradient>
+                            <rect width="100%" height="100%" fill="url(#sun)" />
+                            
+                            <!-- Stylized elegant outline of woman looking upwards thoughtfully -->
+                            <path d="M 120 500 C 120 380, 160 300, 200 280 C 240 260, 270 230, 260 160 C 250 90, 200 80, 190 140" stroke="#FAF9F6" stroke-width="1.5" fill="none" opacity="0.3" stroke-linecap="round"/>
+                            <circle cx="210" cy="130" r="45" fill="none" stroke="#EEDEC9" stroke-width="1" opacity="0.4"/>
+                            
+                            <!-- Glowing inner balance point -->
+                            <circle cx="210" cy="130" r="6" fill="#EEDEC9" opacity="0.9" />
+                            <circle cx="210" cy="130" r="16" fill="none" stroke="#EEDEC9" stroke-width="1" stroke-dasharray="2,2" class="animate-spin" style="transform-origin: 210px 130px; animation-duration: 20s;"/>
+                            
+                            <!-- Delicate botanical plants hugging the frame -->
+                            <path d="M 320 500 C 320 400, 280 340, 310 260" stroke="#EEDEC9" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.75"/>
+                            <path d="M 310 260 C 330 250, 345 255, 340 240 C 335 240, 320 250, 310 260" fill="#EEDEC9" opacity="0.8"/>
+                            <path d="M 300 330 C 280 320, 270 325, 272 310 C 275 310, 290 320, 300 330" fill="#EEDEC9" opacity="0.6"/>
+                            <path d="M 313 410 C 340 400, 350 410, 345 390 C 330 390, 320 400, 313 410" fill="#EEDEC9" opacity="0.75"/>
+                        </svg>
+                    </div>
+
+                    <!-- Small Credential Badge overlaying -->
+                    <div class="absolute -bottom-6 -right-2 glass-card p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-sand">
+                        <div class="w-10 h-10 rounded-full bg-forest/10 flex items-center justify-center text-forest">
+                            <i class="fa-solid fa-graduation-cap text-base"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-xs text-charcoal">Especialista Clínica</p>
+                            <p class="text-[10px] text-charcoal/70">Anos de Prática Dedicada</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Biography Content (Span 7) -->
+                <div class="lg:col-span-7 flex flex-col justify-center" id="sobre-text-content">
+                    
+                    <span class="text-xs md:text-sm uppercase tracking-widest font-semibold text-forest mb-4 block">Sobre Mim</span>
+                    
+                    <h2 class="font-serif text-4xl md:text-5xl text-charcoal leading-tight mb-6">
+                        Humana, acolhedora e comprometida com a sua <span class="italic text-forest">autonomia emocional</span>.
+                    </h2>
+                    
+                    <div class="space-y-6 text-charcoal/85 text-base md:text-lg font-light leading-relaxed">
+                        <p>
+                            Acredito na psicologia como um caminho real de libertação e clareza. Meu trabalho é oferecer a você um refúgio seguro de escuta livre de julgamentos, onde cada palavra é ouvida com respeito absoluto e rigor ético.
+                        </p>
+                        <p>
+                            Com sólida formação e constante especialização em abordagens integradas com foco na saúde mental contemporânea, atuo há mais de 8 anos auxiliando indivíduos a superarem crises de ansiedade severa, a navegarem transições complexas de carreira e a reconstruírem relacionamentos saudáveis a partir do amor-próprio.
+                        </p>
+                    </div>
+
+                    <!-- Small bullet features / differentiators -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 pt-8 border-t border-sand/40">
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 rounded-full bg-forest/10 flex items-center justify-center text-forest mt-1 shrink-0">
+                                <i class="fa-solid fa-leaf text-[10px]"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-charcoal">Abordagem Baseada em Evidências</h4>
+                                <p class="text-xs text-charcoal/70 mt-0.5">Técnicas validadas cientificamente e personalizadas para você.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 rounded-full bg-forest/10 flex items-center justify-center text-forest mt-1 shrink-0">
+                                <i class="fa-solid fa-leaf text-[10px]"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-charcoal">Foco no Desenvolvimento Ativo</h4>
+                                <p class="text-xs text-charcoal/70 mt-0.5">Sessões voltadas para que você desenvolva autonomia real.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Especialidades -->
+    <section id="especialidades" class="py-24 md:py-36 px-6 md:px-12 bg-[#FAF9F6] relative overflow-hidden border-t border-sand/30">
+        <!-- Soft glowing circles in background -->
+        <div class="absolute -right-24 top-1/3 w-80 h-80 rounded-full bg-sand/15 filter blur-3xl -z-10 float-animation"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 md:mb-24" id="especialidades-header">
+                <span class="text-xs md:text-sm uppercase tracking-widest font-semibold text-forest mb-4 block">Especialidades</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-charcoal leading-tight">Áreas de atuação e cuidado especializado</h2>
+                <p class="text-charcoal/70 font-light mt-4 text-base md:text-lg">Abordagens psicoterapêuticas integradas para guiar você na superação de dores e na busca por uma vida equilibrada.</p>
+            </div>
+            
+            <!-- Grid container for glassmorphism cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="especialidades-grid">
+                
+                <!-- Card 1: Ansiedade -->
+                <div class="glass-card p-8 md:p-10 rounded-[32px] border border-sand/40 hover:border-forest/20 shadow-sm transition-all duration-500 group hover:-translate-y-2 hover:shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-24 h-24 rounded-full bg-sand/10 group-hover:bg-sand/30 transition-all duration-500 blur-xl"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-forest/10 flex items-center justify-center text-forest mb-8 transition-transform duration-500 group-hover:scale-110">
+                        <i class="fa-solid fa-brain text-xl"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-charcoal mb-4 font-medium">Ansiedade & Estresse</h3>
+                    <p class="text-charcoal/70 text-sm md:text-base font-light leading-relaxed mb-6">Aprenda a compreender as respostas de estresse do seu corpo, a mapear gatilhos ocultos e a desenvolver habilidades práticas de autorregulação emocional.</p>
+                    <a href="#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-forest uppercase tracking-wider group/link">
+                        Agendar Consulta
+                        <i class="fa-solid fa-arrow-right transition-transform duration-300 group-hover/link:translate-x-1"></i>
+                    </a>
+                </div>
+
+                <!-- Card 2: Autoestima -->
+                <div class="glass-card p-8 md:p-10 rounded-[32px] border border-sand/40 hover:border-forest/20 shadow-sm transition-all duration-500 group hover:-translate-y-2 hover:shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-24 h-24 rounded-full bg-sand/10 group-hover:bg-sand/30 transition-all duration-500 blur-xl"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-forest/10 flex items-center justify-center text-forest mb-8 transition-transform duration-500 group-hover:scale-110">
+                        <i class="fa-solid fa-seedling text-xl"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-charcoal mb-4 font-medium">Autoestima & Identidade</h3>
+                    <p class="text-charcoal/70 text-sm md:text-base font-light leading-relaxed mb-6">Trabalhe a reconstrução do autocuidado, liberte-se de padrões de autocrítica severos e desenvolva uma relação respeitosa com a sua própria história.</p>
+                    <a href="#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-forest uppercase tracking-wider group/link">
+                        Agendar Consulta
+                        <i class="fa-solid fa-arrow-right transition-transform duration-300 group-hover/link:translate-x-1"></i>
+                    </a>
+                </div>
+
+                <!-- Card 3: Transições -->
+                <div class="glass-card p-8 md:p-10 rounded-[32px] border border-sand/40 hover:border-forest/20 shadow-sm transition-all duration-500 group hover:-translate-y-2 hover:shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-24 h-24 rounded-full bg-sand/10 group-hover:bg-sand/30 transition-all duration-500 blur-xl"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-forest/10 flex items-center justify-center text-forest mb-8 transition-transform duration-500 group-hover:scale-110">
+                        <i class="fa-solid fa-compass text-xl"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-charcoal mb-4 font-medium">Transições de Carreira</h3>
+                    <p class="text-charcoal/70 text-sm md:text-base font-light leading-relaxed mb-6">Suporte estruturado para lidar com incertezas profissionais, mudanças drásticas de vida, lutos de papéis anteriores e construção ativa de um novo caminho.</p>
+                    <a href="#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-forest uppercase tracking-wider group/link">
+                        Agendar Consulta
+                        <i class="fa-solid fa-arrow-right transition-transform duration-300 group-hover/link:translate-x-1"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Como Funciona / O Método -->
+    <section id="metodo" class="py-24 md:py-36 px-6 md:px-12 bg-alabaster relative overflow-hidden">
+        
+        <!-- Organic subtle backdrop shape -->
+        <div class="absolute -left-36 top-1/2 w-96 h-96 rounded-full bg-sand/20 filter blur-3xl -z-10 float-animation-reverse"></div>
+        
+        <div class="max-w-5xl mx-auto">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-20 md:mb-28" id="metodo-header">
+                <span class="text-xs md:text-sm uppercase tracking-widest font-semibold text-forest mb-4 block">O Método</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-charcoal leading-tight">Como funciona a jornada terapêutica?</h2>
+                <p class="text-charcoal/70 font-light mt-4 text-base md:text-lg">Um processo claro, estruturado e focado inteiramente na sua segurança e autonomia.</p>
+            </div>
+
+            <!-- Vertical Timeline Container -->
+            <div class="relative pl-8 md:pl-0" id="metodo-timeline">
+                
+                <!-- Central line for timeline (hidden on small, centered on desktop) -->
+                <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-sand/50 -translate-x-1/2">
+                    <!-- Progress bar filling up dynamically via GSAP ScrollTrigger -->
+                    <div id="timeline-progress-line" class="w-full bg-forest h-0 origin-top"></div>
+                </div>
+
+                <!-- Step 1 -->
+                <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-16 md:mb-24 timeline-step">
+                    <!-- Point Bullet -->
+                    <div class="absolute left-4 md:left-1/2 top-1.5 -translate-x-[22px] md:-translate-x-1/2 w-8 h-8 rounded-full bg-alabaster border-4 border-sand flex items-center justify-center text-xs font-bold text-forest transition-all duration-300 z-10 timeline-bullet">
+                        1
+                    </div>
+                    <!-- Left Side: Content Box -->
+                    <div class="md:text-right md:pr-12 md:block flex flex-col items-start">
+                        <div class="glass-card p-6 md:p-8 rounded-3xl border border-sand/40 hover:shadow-md transition-shadow">
+                            <span class="text-xs font-semibold text-forest uppercase tracking-widest block mb-2">Fase Inicial</span>
+                            <h3 class="font-serif text-xl md:text-2xl text-charcoal mb-3">Primeiro Contato & Diagnóstico</h3>
+                            <p class="text-charcoal/70 text-sm md:text-base font-light leading-relaxed">
+                                Você entra em contato e agendamos uma conversa breve. Alinhamos sua queixa principal, valores e tiramos todas as suas dúvidas sobre o funcionamento ético das sessões.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Right Side: Spacer for desktop layout alignment -->
+                    <div class="hidden md:block"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-16 md:mb-24 timeline-step">
+                    <!-- Point Bullet -->
+                    <div class="absolute left-4 md:left-1/2 top-1.5 -translate-x-[22px] md:-translate-x-1/2 w-8 h-8 rounded-full bg-alabaster border-4 border-sand flex items-center justify-center text-xs font-bold text-forest transition-all duration-300 z-10 timeline-bullet">
+                        2
+                    </div>
+                    <!-- Left Side: Spacer -->
+                    <div class="hidden md:block"></div>
+                    <!-- Right Side: Content Box -->
+                    <div class="md:pl-12">
+                        <div class="glass-card p-6 md:p-8 rounded-3xl border border-sand/40 hover:shadow-md transition-shadow">
+                            <span class="text-xs font-semibold text-forest uppercase tracking-widest block mb-2">Estruturação</span>
+                            <h3 class="font-serif text-xl md:text-2xl text-charcoal mb-3">Sessões Semanais Personalizadas</h3>
+                            <p class="text-charcoal/70 text-sm md:text-base font-light leading-relaxed">
+                                Iniciamos os encontros (online ou presencial). Criamos um plano de tratamento exclusivo com ferramentas baseadas em evidências para que você aplique no seu cotidiano prático.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 timeline-step">
+                    <!-- Point Bullet -->
+                    <div class="absolute left-4 md:left-1/2 top-1.5 -translate-x-[22px] md:-translate-x-1/2 w-8 h-8 rounded-full bg-alabaster border-4 border-sand flex items-center justify-center text-xs font-bold text-forest transition-all duration-300 z-10 timeline-bullet">
+                        3
+                    </div>
+                    <!-- Left Side: Content Box -->
+                    <div class="md:text-right md:pr-12 md:block flex flex-col items-start">
+                        <div class="glass-card p-6 md:p-8 rounded-3xl border border-sand/40 hover:shadow-md transition-shadow">
+                            <span class="text-xs font-semibold text-forest uppercase tracking-widest block mb-2">Resultados</span>
+                            <h3 class="font-serif text-xl md:text-2xl text-charcoal mb-3">Autonomia & Alta Terapêutica</h3>
+                            <p class="text-charcoal/70 text-sm md:text-base font-light leading-relaxed">
+                                O objetivo final é fazer com que você se torne o seu próprio terapeuta. Gradualmente, espaçamos os encontros conforme você consolida sua independência e bem-estar.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Right Side: Spacer -->
+                    <div class="hidden md:block"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Contato & Rodapé -->
+    <section id="contato" class="pt-24 pb-12 px-6 md:px-12 bg-forest text-alabaster relative overflow-hidden rounded-t-[48px] md:rounded-t-[64px] shadow-2xl">
+        
+        <!-- Abstract light circles on green background -->
+        <div class="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-mint/20 filter blur-3xl -z-10 float-animation"></div>
+        <div class="absolute -left-24 bottom-0 w-80 h-80 rounded-full bg-alabaster/5 filter blur-3xl -z-10 float-animation-reverse"></div>
+
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-start mb-20" id="contato-container">
+                
+                <!-- Left Side Copy: Column span 5 -->
+                <div class="lg:col-span-5 flex flex-col justify-start">
+                    <span class="text-xs md:text-sm uppercase tracking-widest font-semibold text-sand mb-4 block">Contato</span>
+                    
+                    <h2 class="font-serif text-4xl md:text-5xl text-alabaster leading-tight mb-6">
+                        Dê o primeiro passo em direção ao seu <span class="italic text-sand font-normal">reencontro interno</span>.
+                    </h2>
+                    
+                    <p class="text-alabaster/80 font-light text-base md:text-lg leading-relaxed mb-8">
+                        Seja para agendar sua primeira sessão de diagnóstico, tirar dúvidas sobre planos, valores ou entender melhor o sigilo ético clínico, sinta-se à vontade para enviar uma mensagem. Responderemos com absoluto respeito e rapidez.
+                    </p>
+
+                    <!-- Fast WhatsApp Alternative Card -->
+                    <div class="p-6 rounded-3xl bg-alabaster/10 border border-alabaster/20 flex flex-col sm:flex-row items-start sm:items-center gap-4 hover:bg-alabaster/15 transition-all duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-sand/20 flex items-center justify-center text-sand shrink-0">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-sm text-alabaster">Prefere um contato rápido?</p>
+                            <p class="text-xs text-alabaster/70 mt-0.5">Envie uma mensagem direta no WhatsApp e fale comigo.</p>
+                            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs text-sand hover:text-alabaster font-semibold mt-2 group">
+                                Iniciar conversa agora
+                                <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side Form: Column span 7 -->
+                <div class="lg:col-span-7 bg-alabaster text-charcoal rounded-3xl p-8 md:p-10 shadow-2xl relative border border-sand/30">
+                    
+                    <!-- Integrated Inline Success State Message -->
+                    <div id="contact-success" class="absolute inset-0 bg-alabaster rounded-3xl p-8 md:p-10 flex flex-col items-center justify-center text-center opacity-0 pointer-events-none transition-all duration-500 z-20">
+                        <div class="w-16 h-16 rounded-full bg-forest/10 flex items-center justify-center text-forest mb-6">
+                            <i class="fa-solid fa-check text-2xl"></i>
+                        </div>
+                        <h3 class="font-serif text-3xl text-charcoal mb-3">Mensagem Recebida!</h3>
+                        <p class="text-charcoal/70 max-w-sm text-sm md:text-base font-light leading-relaxed">
+                            Agradeço seu contato e sua confiança. Revisarei sua mensagem com o máximo cuidado ético e retornarei em até 24 horas úteis.
+                        </p>
+                        <button onclick="resetContactForm()" class="mt-8 text-xs font-semibold uppercase tracking-wider text-forest border-b border-forest hover:text-mint hover:border-mint transition-colors">
+                            Enviar outra mensagem
+                        </button>
+                    </div>
+
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
+                        
+                        <!-- Form grid (Two columns for Desktop) -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="flex flex-col">
+                                <label for="name" class="text-xs font-bold uppercase tracking-wider text-charcoal/60 mb-2">Nome Completo *</label>
+                                <input type="text" id="name" required class="w-full px-5 py-3.5 rounded-2xl border border-sand bg-alabaster text-charcoal placeholder-charcoal/40 focus:outline-none focus:border-forest/50 transition-all font-light" placeholder="Ex: Ana Silva">
+                            </div>
+                            <div class="flex flex-col">
+                                <label for="email" class="text-xs font-bold uppercase tracking-wider text-charcoal/60 mb-2">E-mail de Contato *</label>
+                                <input type="email" id="email" required class="w-full px-5 py-3.5 rounded-2xl border border-sand bg-alabaster text-charcoal placeholder-charcoal/40 focus:outline-none focus:border-forest/50 transition-all font-light" placeholder="Ex: ana@exemplo.com">
+                            </div>
+                        </div>
+
+                        <!-- Single columns -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="flex flex-col">
+                                <label for="phone" class="text-xs font-bold uppercase tracking-wider text-charcoal/60 mb-2">WhatsApp / Telefone</label>
+                                <input type="tel" id="phone" class="w-full px-5 py-3.5 rounded-2xl border border-sand bg-alabaster text-charcoal placeholder-charcoal/40 focus:outline-none focus:border-forest/50 transition-all font-light" placeholder="Ex: (11) 99999-9999">
+                            </div>
+                            <div class="flex flex-col">
+                                <label for="subject" class="text-xs font-bold uppercase tracking-wider text-charcoal/60 mb-2">Principal Interesse</label>
+                                <select id="subject" class="w-full px-5 py-3.5 rounded-2xl border border-sand bg-alabaster text-charcoal focus:outline-none focus:border-forest/50 transition-all font-light">
+                                    <option value="ansiedade">Ansiedade & Estresse</option>
+                                    <option value="autoestima">Autoestima & Autoconhecimento</option>
+                                    <option value="carreira">Transições de Vida e Carreira</option>
+                                    <option value="outros">Dúvidas Gerais / Outros</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <label for="message" class="text-xs font-bold uppercase tracking-wider text-charcoal/60 mb-2">Mensagem (Sua Necessidade) *</label>
+                            <textarea id="message" required rows="4" class="w-full px-5 py-3.5 rounded-2xl border border-sand bg-alabaster text-charcoal placeholder-charcoal/40 focus:outline-none focus:border-forest/50 transition-all font-light resize-none" placeholder="Conte-me um pouco sobre o que busca trabalhar..."></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn-transition group relative w-full py-4 rounded-full bg-forest text-alabaster font-semibold text-base shadow-lg hover:shadow-xl hover:bg-mint flex items-center justify-center gap-3">
+                            <span>Enviar Solicitação Segura</span>
+                            <div class="w-6 h-6 rounded-full bg-alabaster/10 flex items-center justify-center group-hover:bg-alabaster/20 transition-all">
+                                <i class="fa-solid fa-paper-plane text-xs"></i>
+                            </div>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Horizontal divider inside green background -->
+            <div class="w-full h-[1px] bg-alabaster/10 mb-12"></div>
+
+            <!-- Footer Bottom Area -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-sm font-light text-alabaster/70">
+                <div class="flex flex-col gap-2">
+                    <p class="font-serif text-lg font-semibold text-alabaster tracking-wide">Sofia Martins | Psicologia Clínica Premium</p>
+                    <p class="text-xs max-w-sm leading-relaxed">
+                        Inscrição Profissional: CRP 06/123456. Todas as sessões são pautadas rigorosamente no Código de Ética do Psicólogo.
+                    </p>
+                </div>
+                <div class="flex flex-col md:items-end gap-3 text-xs">
+                    <div class="flex items-center gap-4">
+                        <a href="#manifesto" class="hover:text-sand transition-colors">Manifesto</a>
+                        <a href="#sobre" class="hover:text-sand transition-colors">Sobre</a>
+                        <a href="#especialidades" class="hover:text-sand transition-colors">Especialidades</a>
+                        <a href="#metodo" class="hover:text-sand transition-colors">O Método</a>
+                    </div>
+                    <p>© 2026 Sofia Martins. Desenvolvido com foco no cuidado ético e autônomo.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Script Animations (Separable into script.js) -->
+    <script id="custom-animations">
+        // Contact Form Interactivity Handler
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            
+            // Simulating a perfect AJAX submission and transitioning the overlay states
+            const successOverlay = document.getElementById('contact-success');
+            if (successOverlay) {
+                successOverlay.classList.remove('pointer-events-none');
+                gsap.to(successOverlay, {
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: "power2.out"
+                });
+            }
+        }
+
+        function resetContactForm() {
+            const form = document.getElementById('contact-form');
+            const successOverlay = document.getElementById('contact-success');
+            
+            if (form) form.reset();
+            if (successOverlay) {
+                successOverlay.classList.add('pointer-events-none');
+                gsap.to(successOverlay, {
+                    opacity: 0,
+                    duration: 0.4,
+                    ease: "power2.in"
+                });
+            }
+        }
+
+        function initAnimations() {
+            // Register ScrollTrigger GSAP Plugin
+            gsap.registerPlugin(ScrollTrigger);
+
+            // ==========================================
+            // 1. HERO SECTION ENTRANCE (IMMEDIATE LOAD)
+            // ==========================================
+            const heroTimeline = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+            heroTimeline.to("#hero-tag", {
+                opacity: 1,
+                y: 0,
+                duration: 1
+            })
+            .to("#hero-title", {
+                opacity: 1,
+                y: 0,
+                duration: 1.2
+            }, "-=0.7")
+            .to("#hero-subtitle", {
+                opacity: 1,
+                y: 0,
+                duration: 1.2
+            }, "-=0.9")
+            .to("#hero-actions", {
+                opacity: 1,
+                y: 0,
+                duration: 1
+            }, "-=0.9")
+            .to("#hero-graphic", {
+                opacity: 1,
+                scale: 1,
+                duration: 1.4,
+                ease: "back.out(1.2)"
+            }, "-=1.2");
+
+            // Subtle mouse parallax movement over Floating Tags
+            const heroSection = document.querySelector('section');
+            const floatingElements = document.querySelectorAll('.float-animation, .float-animation-reverse');
+
+            if (heroSection) {
+                heroSection.addEventListener('mousemove', (e) => {
+                    const { clientX, clientY } = e;
+                    const { width, height } = heroSection.getBoundingClientRect();
+                    
+                    const xPos = (clientX / width - 0.5) * 15;
+                    const yPos = (clientY / height - 0.5) * 15;
+
+                    floatingElements.forEach((el, index) => {
+                        const depth = (index + 1) * 0.4;
+                        gsap.to(el, {
+                            x: xPos * depth,
+                            y: yPos * depth,
+                            duration: 1.2,
+                            ease: "power2.out",
+                            overwrite: "auto"
+                        });
+                    });
+                });
+            }
+
+            // ==========================================
+            // 2. MANIFESTO SECTION (SCROLL TRIGGER)
+            // ==========================================
+            gsap.fromTo("#manifesto-badge", 
+                { opacity: 0, y: 30 },
+                { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: "#manifesto",
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+
+            gsap.fromTo("#manifesto-text", 
+                { opacity: 0, y: 40 },
+                { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 1.4,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: "#manifesto",
+                        start: "top 70%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+
+            gsap.fromTo("#manifesto-author", 
+                { opacity: 0 },
+                { 
+                    opacity: 1, 
+                    duration: 1, 
+                    delay: 0.6,
+                    scrollTrigger: {
+                        trigger: "#manifesto",
+                        start: "top 70%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+
+            // ==========================================
+            // 3. SOBRE MIM SECTION (SCROLL TRIGGER)
+            // ==========================================
+            gsap.fromTo("#sobre-photo-container", 
+                { opacity: 0, x: -40, scale: 0.95 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    duration: 1.4,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: "#sobre",
+                        start: "top 75%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+
+            gsap.fromTo("#sobre-text-content", 
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.2,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: "#sobre",
+                        start: "top 65%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+
+            // ==========================================
+            // 4. ESPECIALIDADES SECTION (SCROLL TRIGGER)
+            // ==========================================
+            gsap.fromTo("#especialidades-header", 
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.2,
+                    scrollTrigger: {
+                        trigger: "#especialidades",
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+
+            gsap.fromTo("#especialidades-grid > div", 
+                { opacity: 0, y: 60 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    stagger: 0.15,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: "#especialidades-grid",
+                        start: "top 75%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+
+            // ==========================================
+            // 5. O MÉTODO / TIMELINE SECTION (SCROLL TRIGGER)
+            // ==========================================
+            gsap.fromTo("#metodo-header", 
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.2,
+                    scrollTrigger: {
+                        trigger: "#metodo",
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+
+            // Line timeline progressive fill animation
+            gsap.fromTo("#timeline-progress-line", 
+                { scaleY: 0 },
+                {
+                    scaleY: 1,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: "#metodo-timeline",
+                        start: "top 60%",
+                        end: "bottom 60%",
+                        scrub: true
+                    }
+                }
+            );
+
+            // Individual steps and bullet activations
+            const steps = document.querySelectorAll(".timeline-step");
+            steps.forEach((step) => {
+                const bullet = step.querySelector(".timeline-bullet");
+                const card = step.querySelector(".glass-card");
+
+                gsap.fromTo(card, 
+                    { opacity: 0, y: 40, scale: 0.98 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 1.2,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: step,
+                            start: "top 75%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+
+                gsap.fromTo(bullet, 
+                    { borderColor: "#EEDEC9", backgroundColor: "#FAF9F6", scale: 0.9 },
+                    {
+                        borderColor: "#2D5A27",
+                        backgroundColor: "#EEDEC9",
+                        scale: 1.1,
+                        scrollTrigger: {
+                            trigger: step,
+                            start: "top 65%",
+                            toggleActions: "play none none reverse",
+                            scrub: 0.5
+                        }
+                    }
+                );
+            });
+
+            // ==========================================
+            // 6. CONTATO SECTION (SCROLL TRIGGER)
+            // ==========================================
+            gsap.fromTo("#contato-container", 
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.4,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: "#contato",
+                        start: "top 75%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        }
+
+        // Run animations on complete readyState or immediately on DOMContentLoaded
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            initAnimations();
+        } else {
+            document.addEventListener("DOMContentLoaded", initAnimations);
+        }
+    </script>
+</body>
+</html>
