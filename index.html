@@ -10,6 +10,7 @@
     <!-- Google Fonts: Instrument Serif (Italic/Normal) & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style/style-main.css">
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- GSAP Core & ScrollTrigger for high-end scroll animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -65,6 +66,11 @@
         .float-animation {
             animation: gentle-float 6s ease-in-out infinite;
         }
+
+        .img-psicologa {
+            position: relative;
+            top: 120px;
+}
         @keyframes gentle-float-reverse {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(8px) rotate(-1deg); }
@@ -90,6 +96,13 @@
         .lock-scroll {
             overflow: hidden !important;
         }
+
+        
+@media (max-width: 768px) {
+    .img-psicologa {
+        top: 60px;
+    }
+}
     </style>
 </head>
 <body class="relative min-h-screen">
@@ -236,27 +249,7 @@
                     <!-- Main elegant glass container -->
                     <div class="absolute inset-4 rounded-[36px] overflow-hidden glass-card flex items-center justify-center shadow-xl">
                         <!-- Simulated abstract nature photography or art using CSS shapes & SVGs -->
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-8 transform scale-105">
-                            <defs>
-                                <radialGradient id="grad1" cx="50%" cy="50%" r="50%">
-                                    <stop offset="0%" style="stop-color:#EEDEC9;stop-opacity:0.6" />
-                                    <stop offset="100%" style="stop-color:#FAF9F6;stop-opacity:0" />
-                                </radialGradient>
-                            </defs>
-                            <circle cx="100" cy="100" r="90" fill="url(#grad1)" />
-                            
-                            <!-- Minimalist organic branch / leaf vector -->
-                            <path d="M 100 180 C 100 130, 90 90, 140 60" stroke="#2D5A27" stroke-width="1.5" fill="none" stroke-linecap="round" />
-                            <path d="M 115 130 C 130 120, 145 125, 140 110 C 135 110, 120 120, 115 130" fill="#3B6B55" opacity="0.85" />
-                            <path d="M 100 100 C 80 90, 70 95, 72 80 C 75 80, 90 90, 100 100" fill="#3B6B55" opacity="0.75" />
-                            <path d="M 100 180 C 100 110, 110 80, 70 50" stroke="#2D5A27" stroke-width="1" stroke-dasharray="2,2" fill="none" />
-                            
-                            <!-- Balanced abstract Zen stones -->
-                            <ellipse cx="100" cy="170" rx="30" ry="12" fill="#1E2522" opacity="0.08" />
-                            <ellipse cx="100" cy="165" rx="24" ry="10" fill="#2D5A27" opacity="0.85" />
-                            <ellipse cx="100" cy="150" rx="18" ry="8" fill="#EEDEC9" />
-                            <ellipse cx="101" cy="138" rx="12" ry="6" fill="#1E2522" opacity="0.75" />
-                        </svg>
+                        <img class="img-psicologa" src="https://images.pexels.com/photos/16552438/pexels-photo-16552438.jpeg" alt="">
                     </div>
 
                     <!-- Floating Interactive Badge 1: Online sessions available -->
